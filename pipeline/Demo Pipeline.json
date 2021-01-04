@@ -10,6 +10,30 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
+			},
+			{
+				"name": "Send a Email",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-03.canadacentral.logic.azure.com:443/workflows/8a633c5901d7466dbc03686dd3f7c895/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=DP5uXqRKS1UBR3f3R8DCM8uGHIKcEywmSzCm09H5cWg",
+					"method": "GET"
+				}
 			}
 		],
 		"annotations": []
